@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <style>
+        img {
+
+            width: 400px !important;
+            height: 250px !important;
+        }
+
+
+    </style>
+
+</head>
+<body>
+<div class="container">
+<div class="row">
+    <form action = "/processaN" method = "POST">
+{% for p1 in lista %}
+    <div class="col s4">
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="{{p1.url}}">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">{{p1.panino}}<i class="material-icons right"></i></span>
+      <p>{{p1.prezzo }} euro</p>
+        <input type = "number" name = "numeroPezzi" value = "0">
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">{{p1.panino}}<i class="material-icons right">close</i></span>
+      <p>Contorno {{p1.contorno}}</p>
+        <p>Bibita {{p1.bibita}}</p>
+    </div>
+  </div>
+</div>
+{% endfor %}
+        <input type = "submit" value = "ordina">
+     </form>
+</div>
+</div>
+</body>
+</html>
